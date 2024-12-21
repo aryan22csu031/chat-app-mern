@@ -10,6 +10,7 @@ const { app, server } = require("./config/socket.js");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
+const dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -23,14 +24,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/message", messageRouter);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/dist")));
+  app.use(express.static(path.join(dirname, "../client/dist")));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
   });
 }
 server.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
-  console.log(__dirname);
-
   connect_db();
 });

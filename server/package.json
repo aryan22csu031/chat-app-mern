@@ -5,13 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/app.js",
-    "start": "node ./src/app.js"
+    "dev": "nodemon /src/app.js",
+    "start": "node /src/app.js"
   },
   "author": "Aryan Arora",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chat-app": "file:..",
     "cloudinary": "^2.5.1",
     "convosphere-chat-app": "file:..",
     "cookie-parser": "^1.4.7",
